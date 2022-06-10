@@ -4,6 +4,8 @@ import Float "mo:base/Float";
 
 actor DBank{
   stable var currentValue: Float = 400;
+  currentValue:=500;
+
   stable var startTime = Time.now();
   let id= 123123213;
   // Debug.print(debug_show(id));
@@ -27,10 +29,12 @@ actor DBank{
   };
 
   public query func checkBalance(): async Float{
+
     return currentValue;
+
   };
 
-  public func Compound(){
+  public func compound(){
     let currentTime = Time.now();
     let timeElaspedNS = currentTime-startTime;
     let timeElaspedS = timeElaspedNS/1000000000;
